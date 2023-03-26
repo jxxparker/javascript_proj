@@ -1,16 +1,13 @@
 'use strict';
 
-
 let secretNumber = Math.trunc(Math.random() * 20) + 1; // random number from 0 - 19
 let score = 10;
-// document.querySelector('.number').textContent = secretNumber;
-
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
-  // console.log(guess, typeof guess);
+  console.log(guess, typeof guess);
 
-  // When there is no input
+    // When there is no input
   if (!guess) {
     document.querySelector('.message').textContent = '👻 No Number';
 
@@ -18,7 +15,8 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '👍🏻 Correct Number';
     document.querySelector('.number').textContent = secretNumber;
-    document.querySelector('body').style.backgroundColor = '#60b347';
+
+    document.querySelector('body').style.backgroundColor = '#60b347'
     document.querySelector('.number').style.width = '30rem';
 
     // When guess is too high
@@ -43,14 +41,15 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 });
 
-
-document.querySelector('.again').addEventListener('click', function () {
+document.querySelector('.again').addEventListener('click', function() {
   score = 10;
   secretNumber = Math.trunc(Math.random() * 20) + 1;
-  document.querySelector('.message').textContent = 'Start Guessing . . .'
+
+  document.querySelector('.message').textContent = 'Start Guessing again!!!';
   document.querySelector('.score').textContent = score;
-  document.querySelector('.number').textContent = '??';
-  document.querySelector('.guess').value = ''
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
-});
+  document.querySelector('.number').textContent = '?*';
+  document.querySelector('.guess').value = ' ';
+
+  document.querySelector('body').style.backgroundColor = '#222'
+    document.querySelector('.number').style.width = '15rem';
+})
