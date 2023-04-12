@@ -1,43 +1,33 @@
 'use strict';
 
-const flight = 'JH123';
-const jihun = {
+const flight = 'LH234';
+const jihunpark = {
     name: 'Jihun Park',
-    passport: 123456789,
+    passport: 12345678,
 };
 
-const checkIn = function(flightNum, passenger) {
-    flightNum = 'ABC999';
-    passenger.name = 'Mr. ' + passenger.name;
-
-    if (passenger.passport === 123456789) {
+const checkIn = function (flightNum, passenger) {
+    passenger.name = 'Mr. ' + passenger.name
+    flightNum = 'LH123'
+    
+    if (passenger.passport === 12345678) {
         alert('Checked In')
     } else {
-        alert('Wrong passport!')
+        alert('WRONG PASSPORT')
     }
+
+    console.log(passenger.name, flightNum);
 };
 
-checkIn(flight, jihun);
-console.log(flight);
-console.log(jihun);
-
-// Is the same as doing ...
-// const flightNum = flight;
-// const passenger = jihun;
+checkIn(flight, jihunpark);
+// console.log(jihunpark);
 
 const newPassport = function(person) {
-    person.passport = Math.trunc(Math.random() * 1);
+    person.passport = Math.trunc(Math.random() * 100);
 };
 
-newPassport(jihun);
-console.log(flight, jihun);
-checkIn(flight, jihun);
-
-
-
-
-
-
+newPassport(jihunpark);
+checkIn(flight, jihunpark);
 
 
 
