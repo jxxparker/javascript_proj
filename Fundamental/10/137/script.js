@@ -5,14 +5,12 @@ const secureBooking = function() {
 
     return function() {
         passengerCount++;
-        console.log(`${passengerCount} passengers`);
+        console.log(`${passengerCount} passenger`);
     }
-}; 
+};
 
 const booker = secureBooking();
 
 booker();
 booker();
 booker();
-
-console.dir(booker);
