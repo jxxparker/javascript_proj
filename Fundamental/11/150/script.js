@@ -100,3 +100,7 @@ const movementsUSD = movements.map(function(mov) {
 
 console.log(movements);
 console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
