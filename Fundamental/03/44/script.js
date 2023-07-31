@@ -3,17 +3,24 @@
 const jonas = {
   firstName: "Jihun",
   lastName: "Park",
-  age: 2037 - 1991,
+  birthYear: 1992,
   job: "teacher",
   friends: ["Michael", "Peter", "Steven"],
   hasDriversLicense: true,
 
-  calcAge: function(birthYear) {
-    return 2037 - birthYear;
-  }
+  calcAge: function (birthYear) {
+    return 2023 - birthYear;
+  },
+
+  calcAge2: function () {
+    console.log(this);
+    return 2024 - this.birthYear;
+  },
 };
 
-jonas.calcAge(1991);
-console.log(jonas.calcAge(1991));
-console.log(jonas['calcAge'](1991));
+// const calcAge = function (birthYear) {
+//   return 2037 - birthYear;
+// };
 
+console.log(jonas.calcAge(1990));
+console.log(jonas.calcAge2());
