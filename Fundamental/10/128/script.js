@@ -7,6 +7,13 @@ const createBooking = function (
   numPassengers = 1,
   price = 199 * numPassengers
 ) {
+  // ES5
+
+  // numPassengers = numPassengers || 1;
+  // price = price || 199;
+
+  // --------------------------------
+
   const booking = {
     flightNum,
     numPassengers,
@@ -16,6 +23,6 @@ const createBooking = function (
   bookings.push(booking);
 };
 
-createBooking("LH123");
-createBooking('lh123', 2, 800);
-createBooking('LH123', 5)
+createBooking("JP360");
+createBooking("JP3601", 2, 800);
+createBooking("JP36011", 5);
