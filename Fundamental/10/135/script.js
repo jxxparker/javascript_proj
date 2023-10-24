@@ -19,7 +19,6 @@ const poll = {
 
     console.log(this.answers);
   },
-  displayResult(type = 'array')
 };
 // poll.registeredNewAnswer();
 document
