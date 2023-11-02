@@ -39,9 +39,3 @@ console.log(jihun.__proto__);
 console.log(jihun.__proto__ === Person.prototype);
 
 console.log(Person.prototype.isPrototypeOf(jihun));
-
-// .prototypeOflinkedObjects
-Person.prototype.species = "Homo Sapiens";
-console.log(jihun.species, demar.species);
-
-console.log(jihun.hasOwnProperty("firstName"));
