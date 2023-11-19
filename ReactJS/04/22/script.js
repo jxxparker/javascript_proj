@@ -145,7 +145,7 @@ function getBook(id) {
 
 // Destructuring
 
-const book = getBook(1);
+const book = getBook(2);
 // const title = book.title;
 // const author = book.author;
 
@@ -171,9 +171,12 @@ updatedBook;
 
 // 20 Template Literals
 
-const summary = `${title}, a ${pages}-page long book, was written by ${author} published in ${
-  publicationDate.split("-")[0]
-}. The book has ${hasMovieAdaptation ? "" : "Not"} been adapted as a movie`;
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title}, a ${pages}-page long book, was written by ${author} published in ${getYear(
+  publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "Not"} been adapted as a movie`;
 summary;
 
 // 21 Ternaries instead of if/else
@@ -181,3 +184,14 @@ summary;
 const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
 pagesRange;
 console.log(`the book has ${pagesRange} pages`);
+
+// 22 Arrow functions
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+// const getYear2 = (str) => str.split("-")[0];
+// console.log(getYear2(publicationDate));
+
+// 23 Short circui9ting and logical operatorconsole.log() &&, ||, ??
