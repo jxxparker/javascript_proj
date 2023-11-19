@@ -145,14 +145,12 @@ function getBook(id) {
 
 // Destructuring
 
-const book = getBook(2);
-
+const book = getBook(1);
 // const title = book.title;
 // const author = book.author;
 
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
-
 console.log(author, title, genres);
 
 // const primaryGenre = genres[0];
@@ -174,6 +172,12 @@ updatedBook;
 // 20 Template Literals
 
 const summary = `${title}, a ${pages}-page long book, was written by ${author} published in ${
-  publicationDate.split("_")[0]
-}`;
+  publicationDate.split("-")[0]
+}. The book has ${hasMovieAdaptation ? "" : "Not"} been adapted as a movie`;
 summary;
+
+// 21 Ternaries instead of if/else
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+console.log(`the book has ${pagesRange} pages`);
