@@ -143,89 +143,27 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-// Destructuring
-
-const book = getBook(1);
-// const title = book.title;
-// const author = book.author;
-
-const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
-  book;
-console.log(author, title, genres);
-
-// const primaryGenre = genres[0];
-// const secondaryGenre = genres[1];
-
-const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
-console.log(primaryGenre, secondaryGenre, otherGenres);
-
-const newGenres = ["epic fantasy", ...genres];
-newGenres;
-
-const updatedBook = {
-  ...book,
-  moviePublicationDate: "2001-12-19",
-  pages: 1210,
-};
-updatedBook;
-
-// 20 Template Literals
-
-const getYear = (str) => str.split("-")[0];
-console.log(getYear(publicationDate));
-
-const summary = `${title}, a ${pages}-page long book, was written by ${author} published in ${getYear(
-  publicationDate
-)}. The book has ${hasMovieAdaptation ? "" : "Not"} been adapted as a movie`;
-summary;
-
-// 21 Ternaries instead of if/else
-
-const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
-pagesRange;
-console.log(`the book has ${pagesRange} pages`);
-
-// 22 Arrow functions
-
-// function getYear(str) {
-//   return str.split("-")[0];
-// }
-
-// const getYear2 = (str) => str.split("-")[0];
-// console.log(getYear2(publicationDate));
-
-// 23 Short circui9ting and logical operatorconsole.log() &&, ||, ??
-
-console.log(true && "Some string");
-console.log(false && "Some string");
-console.log(hasMovieAdaptation && "This book has a movie");
-
-// falsy : 0, '', null, undefined
-console.log("jonas" && "Some string");
-console.log(0 && "Some string");
-
-console.log(true || "Some String");
-console.log(false || "Some String");
-
-console.log(book.translations.spanish);
-
-const spanishTranslation = book.translations.spanish || "Not Translated";
-spanishTranslation;
-
-console.log(book.reviews.librarything.reviewsCount);
-const countWrong = book.reviews.librarything.reviewsCount || "No Data";
-countWrong;
-
-const count = book.reviews.librarything.reviewsCount ?? "No Data";
-count;
-
-// 24 Optional chaining
-
 function getTotalReviewCount(book) {
-  const goodreads = book.reviews.goodreads;
-  const librarything = book.reviews.librarything.reviewsCount;
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
   librarything;
   return goodreads + librarything;
 }
 
-console.log(getTotalReviewCount(book));
+// 25 The array map method
+
+const books = getBooks();
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+console.log(x);
+
+const titles = books.map((book) => book.title);
+// console.log(titles);
+
+const essentialData = books.map((book) => {
+  return {
+    title: book.title,
+    author: book.author,
+    reviewsCount: getTotalReviewCount(book),
+  };
+});
+console.log(essentialData);
