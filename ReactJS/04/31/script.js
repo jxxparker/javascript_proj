@@ -143,76 +143,19 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-function getTotalReviewCount(book) {
-  const goodreads = book.reviews?.goodreads?.reviewsCount;
-  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
-  librarything;
-  return goodreads + librarything;
+// fetch("https://jsonplaceholder.typicode.com/todos/").then((res) =>
+//   res.json().then((data) => console.log(data))
+// );
+// console.log(fetch("https://jsonplaceholder.typicode.com/todos/"));
+// console.log("jihun");
+
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/");
+  const data = await res.json();
+  console.log(data);
+
+  return data;
 }
 
-// 25 The array map method
-
-const books = getBooks();
-const x = [1, 2, 3, 4, 5].map((el) => el * 2);
-// console.log(x);
-
-const titles = books.map((book) => book.title);
-// console.log(titles);
-
-const essentialData = books.map((book) => {
-  return {
-    title: book.title,
-    author: book.author,
-    reviewsCount: getTotalReviewCount(book),
-  };
-});
-// console.log(essentialData);
-
-// 26 Filter method
-
-const longBooks = books
-  .filter((book) => book.pages > 500)
-  .filter((book) => book.hasMovieAdaptation);
-// console.log(longBooks);
-
-const adventureBooks = books
-  .filter((book) => book.genres.includes("adventure"))
-  .map((book) => book.title);
-// console.log(adventureBooks);
-
-// 27 The array reduce method
-
-const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, {});
-// console.log(pagesAllBooks);
-
-// 28 The array sort method
-
-const arr = [3, 7, 1, 9, 6];
-// const sorted = arr.sort((a, b) => a - b);
-const sorted = arr.slice().sort((a, b) => b - a);
-// console.log(sorted);
-// console.log(arr);
-
-const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
-
-// 29 working with immutable arrays
-
-// 1 ) add book object to array
-const newBook = {
-  id: 6,
-  title: "Harry potter",
-  author: "Jk Rowling",
-};
-
-const booksAfterAdd = [...books, newBook];
-// console.log(booksAfterAdd);
-
-// 2 ) Delete book object from array
-const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
-// console.log(booksAfterDelete);
-
-// 3 ) Update book object in the array
-const booksAfterUpdate = booksAfterDelete.map((book) =>
-  book.id === 1 ? { ...book, pages: 1210 } : book
-);
-console.log(booksAfterUpdate);
+const todos = getTodos();
+console.log(todos);
