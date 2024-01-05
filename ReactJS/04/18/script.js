@@ -148,16 +148,14 @@ function getBook(id) {
 const book = getBook(2);
 
 // const title = book.title;
+// title;
+
 // const author = book.author;
+// author;
 
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
-
 console.log(author, title, genres);
 
-// const primaryGenre = genres[0];
-// const secondaryGenre = genres[1];
-
 const [primaryGenre, secondaryGenre] = genres;
-
 console.log(primaryGenre, secondaryGenre);
