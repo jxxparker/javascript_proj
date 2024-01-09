@@ -49,50 +49,46 @@ const pizzaData = [
 function App() {
   return (
     <div>
-      <Header />
-      <Menu />
-      <Footer />
+      <Header></Header>
+      <Menu></Menu>
+      <Footer></Footer>
     </div>
   );
 }
 
 function Header() {
-  return <h1>Fast React Pizza Co.</h1>;
+  return <h1>Fast React Pizza co.</h1>;
 }
 
 function Menu() {
   return (
     <div>
-      <h1>Our Menu</h1>
-      <Pizza />
+      <h2>Our Menu</h2>
+      <Pizza></Pizza>
     </div>
   );
 }
 
 function Footer() {
-  return <footer>{new Date().toLocaleTimeString()}We're currently open</footer>;
-
-  // return React.createElement("footer", null, "We are currently Open");
+  return (
+    <footer>{new Date().toLocaleTimeString()} : We're currently open</footer>
+  );
+  // return React.createElement("footer", null, "We're currently open!");
 }
 
 function Pizza() {
   return (
     <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
+      <img src="pizzas/spinaci.jpg" alt="Pizza spianci" />
       <h2>Pizza Spinaci</h2>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </div>
   );
 }
 
-// React V18
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// React before 18
-
-// React.render(<App />);

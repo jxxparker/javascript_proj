@@ -5,7 +5,7 @@ function App() {
   return <h1>Hello React!</h1>;
 }
 
-// React V18
+// React v18
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -13,6 +13,5 @@ root.render(
   </React.StrictMode>
 );
 
-// React before 18
-
+// // React before 18
 // React.render(<App />);

@@ -48,31 +48,26 @@ const pizzaData = [
 
 function App() {
   return (
-    <h1>
-      Hello React!
+    <div>
+      <h1>Hello React!</h1>
       <Pizza />
-      <Pizza />
-    </h1>
+    </div>
   );
 }
+
 function Pizza() {
   return (
     <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
+      <img src="pizzas/spinaci.jpg" alt="Pizza spianci" />
       <h2>Pizza Spinaci</h2>
       <p>Tomato, mozarella, spinach, and ricotta cheese</p>
     </div>
   );
 }
 
-// React V18
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// React before 18
-
-// React.render(<App />);
