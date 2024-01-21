@@ -1,22 +1,28 @@
-<!-- PLEASE READ 'README.MD BEFORE USING THIS' -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>HealthCheck Tool</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Processing</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 style="text-align: center">HealthCheck Tool</h1>
-    <div class="buttons">
-      <button id="preview-button">Preview Images</button>
-      <button id="download-zip">Download ZIP</button>
-    </div>
+    <!-- Input for URL -->
+    <input type="text" id="imageUrlInput" placeholder="Enter image URL" />
 
+    <!-- Process Button -->
+    <button id="processUrlButton">Process URL</button>
+
+    <!-- Image Container -->
     <div class="image-container"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-    <script type="module" src="script.js"></script>
-    <!-- <script src="script.js"></script> -->
+    <!-- Preview and Download Buttons (if needed) -->
+    <button id="preview-button">Preview Images</button>
+    <button id="download-zip">Download ZIP</button>
+
+    <!-- Include the necessary scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="./urls.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

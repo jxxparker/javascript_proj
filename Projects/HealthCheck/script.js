@@ -1,14 +1,13 @@
-import urls from "./urls.js"; // Correct the path to urls.js
-
-// ### -------------------------- DON'T TOUCH PAST THIS POINT ### --------------------------
-
 const imageContainer = document.querySelector(".image-container");
+const imageUrlInput = document.querySelector("#imageUrlInput");
+const processUrlButton = document.querySelector("#processUrlButton");
 const previewButton = document.querySelector("#preview-button");
 const downloadButton = document.querySelector("#download-zip");
 
-const fetchImage = async (url) => {
+// Function to fetch a single image from the given URL
+const fetchSingleImage = async (url) => {
   try {
-    const response = await fetch(url); // Sending request to the internet to fetch image from URL above.
+    const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -16,10 +15,22 @@ const fetchImage = async (url) => {
     return { blob, url };
   } catch (error) {
     console.error("Error fetching image:", error);
-    return { blob: null, url }; // Return a placeholder for failed images
+    return { blob: null, url };
   }
 };
 
+// Function to process a single URL and display the image
+const processSingleUrl = async () => {
+  const url = imageUrlInput.value;
+  try {
+    const image = await fetchSingleImage(url);
+    displayImages([image]);
+  } catch (error) {
+    console.error("Error processing URL:", error);
+  }
+};
+
+// Function to display images in the image container
 const displayImages = (images) => {
   imageContainer.innerHTML = "";
   images.forEach(({ blob, url }) => {
@@ -30,19 +41,38 @@ const displayImages = (images) => {
     image.classList.add("image");
 
     const imageContent = `
-            <img src="${imageUrl}" alt="">
-            <div class="image-name">${fileName}</div>
-          `;
+      <img src="${imageUrl}" alt="">
+      <div class="image-name">${fileName}</div>
+    `;
 
     image.innerHTML = imageContent;
     imageContainer.appendChild(image);
   });
 };
 
-const downloadZip = async () => {
-  const imagePromises = urls.map(fetchImage);
-  const images = await Promise.all(imagePromises);
+// Event listener for processing a single URL
+processUrlButton.addEventListener("click", processSingleUrl);
 
+// Event listener for previewing images
+previewButton.addEventListener("click", async () => {
+  const url = imageUrlInput.value;
+  if (url) {
+    const image = await fetchSingleImage(url);
+    displayImages([image]);
+  }
+});
+
+// Event listener for downloading images as a ZIP file
+downloadButton.addEventListener("click", async () => {
+  const url = imageUrlInput.value;
+  if (url) {
+    const image = await fetchSingleImage(url);
+    downloadZip([image]);
+  }
+});
+
+// Function to download images as a ZIP file
+const downloadZip = async (images) => {
   const zip = new JSZip();
 
   images.forEach(({ blob, url }) => {
@@ -56,17 +86,9 @@ const downloadZip = async () => {
 
   const a = document.createElement("a");
   a.href = URL.createObjectURL(content);
-  a.download = "healthCheckJPG.zip";
+  a.download = "downloadedImages.zip";
   a.style.display = "none";
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
 };
-
-previewButton.addEventListener("click", async () => {
-  const imagePromises = urls.map(fetchImage);
-  const images = await Promise.all(imagePromises);
-  displayImages(images);
-});
-
-downloadButton.addEventListener("click", downloadZip);
