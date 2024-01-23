@@ -64,7 +64,7 @@ function Header() {
   return (
     <header className="header">
       <h1 style={style} className="header">
-        Fast React Pizza co.
+        Example Template
       </h1>
     </header>
   );
