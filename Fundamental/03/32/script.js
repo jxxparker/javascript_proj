@@ -1,9 +1,7 @@
-'use strict'; 
+"use strict";
 
 let hasDriversLicense = false;
-const pastTest = true;
+const passTest = true;
 
-if (pastTest) hasDriversLicense = true;
-if (hasDriversLicense) console.log('I can drive');
-
-const private = 544;
+if (passTest) hasDriversLicense = true;
+if (hasDriversLicense) console.log("I can drive");

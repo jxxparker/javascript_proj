@@ -1,8 +1,8 @@
-let js = 'amazing';
+let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 
-console.log('Jonas');
+console.log("Jonas");
 console.log(23);
 
-let firstName = 'Jihun';
+let firstName = "Jihun";
 console.log(firstName);
