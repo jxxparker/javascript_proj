@@ -1,32 +1,21 @@
 "use strict";
 
-const flight = "LH234";
-const jihun = {
-  name: "Jihun Park",
-  passport: 246810,
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
 };
 
-const checkIn = function (flightNum, passenger) {
-  flightNum = "LH999";
-  passenger.name = "Mr. " + passenger.name;
-
-  if (passenger.passport === 246810) {
-    alert("Check in");
-  } else {
-    alert("wrong passport");
-  }
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+  return [first.toUpperCase(), ...others].join(" ");
 };
 
-// checkIn(flight, jihun);
-// console.log(flight);
-// console.log(jihun);
+// Higher order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformer string: ${fn(str)}`);
 
-// const flightNum = flight;
-// const passenger = jihun;
-
-const newPassport = function (person) {
-  person.passport = Math.trunc(Math.random() * 100000);
+  console.log(`Transformer by: ${fn.name}`);
 };
 
-newPassport(jihun);
-checkIn(flight, jihun);
+transformer("Javascript is the best", upperFirstWord);
+transformer("Javscript is the bestEST", oneWord);
