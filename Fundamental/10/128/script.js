@@ -1,28 +1,22 @@
 "use strict";
 
-const bookings = [];
-
-const createBooking = function (
-  flightNum,
-  numPassengers = 1,
-  price = 199 * numPassengers
-) {
-  // ES5
-
-  // numPassengers = numPassengers || 1;
-  // price = price || 199;
-
-  // --------------------------------
-
-  const booking = {
-    flightNum,
-    numPassengers,
-    price,
-  };
-  console.log(booking);
-  bookings.push(booking);
+const flight = "LH234";
+const jihun = {
+  name: "Jihun Park",
+  passport: 246810,
 };
 
-createBooking("JP360");
-createBooking("JP3601", 2, 800);
-createBooking("JP36011", 5);
+const checkIn = function (flightNum) {
+  flightNum = "LH999";
+  passenger.name = "Mr. " + passenger.name;
+
+  if (passenger.passport === 246810) {
+    alert("Check in");
+  } else {
+    alert("wrong passport");
+  }
+};
+
+checkIn(flight, jihun);
+console.log(flight);
+console.log(jihun);
