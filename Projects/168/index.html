@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <script>
+        const days = [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ];
+        for (let day of days) {
+          document.write(`
+          <div class="todo-app">
+            <h2>To-Do List for ${day} <img src="images/icon.png" alt="" /></h2>
+            <div class="row">
+              <input type="text" id="input-box" placeholder="Add your text">
+              <button onClick="addTask()">Add</button>
+              <button onClick="addHours()"
+            </div>
+            <ul id="list-container"></ul>
+          </div>
+        `);
+        }
+      </script>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
