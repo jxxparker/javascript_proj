@@ -1,37 +1,32 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Todo</title>
+    <title>Weekly Todo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <script>
-        const days = [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ];
-        for (let day of days) {
-          document.write(`
-          <div class="todo-app">
-            <h2>To-Do List for ${day} <img src="images/icon.png" alt="" /></h2>
-            <div class="row">
-              <input type="text" id="input-box" placeholder="Add your text">
-              <button onClick="addTask()">Add</button>
-              <button onClick="addHours()"
-            </div>
-            <ul id="list-container"></ul>
+      <div class="todo-app" id="app">
+        <h1>Weekly To-Do List</h1>
+        <div class="day" id="monday">
+          <h2>Monday</h2>
+          <div class="row">
+            <input type="text" id="mon-input-box" placeholder="Add your text" />
+            <button onClick="addTask('mon')">Add</button>
           </div>
-        `);
-        }
-      </script>
+          <ul id="mon-list-container"></ul>
+        </div>
+        <div class="day" id="tuesday">
+          <h2>Tuesday</h2>
+          <div class="row">
+            <input type="text" id="tue-input-box" placeholder="Add your text" />
+            <button onClick="addTask('tue')">Add</button>
+          </div>
+          <ul id="tue-list-container"></ul>
+        </div>
+        <!-- Repeat for other days -->
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
