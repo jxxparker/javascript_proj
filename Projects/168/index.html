@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <div class="todo-app" id="app">
-        <h1>Weekly To-Do List</h1>
+        <h1>168</h1>
         <div class="day" id="monday">
           <h2>Monday</h2>
           <div class="row">
@@ -16,6 +16,7 @@
             <button onClick="addTask('mon')">Add</button>
           </div>
           <ul id="mon-list-container"></ul>
+          <input type="number" class="guess" />
         </div>
         <div class="day" id="tuesday">
           <h2>Tuesday</h2>
@@ -25,7 +26,30 @@
           </div>
           <ul id="tue-list-container"></ul>
         </div>
-        <!-- Repeat for other days -->
+        <div class="day" id="wednesday">
+          <h2>Wednesday</h2>
+          <div class="row">
+            <input type="text" id="wed-input-box" placeholder="Add your text" />
+            <button onClick="addTask('wed')">Add</button>
+          </div>
+          <ul id="wed-list-container"></ul>
+        </div>
+        <div class="day" id="thursday">
+          <h2>Thursday</h2>
+          <div class="row">
+            <input type="text" id="thu-input-box" placeholder="Add your text" />
+            <button onClick="addTask('thu')">Add</button>
+          </div>
+          <ul id="thu-list-container"></ul>
+        </div>
+        <div class="day" id="friday">
+          <h2>Friday</h2>
+          <div class="row">
+            <input type="text" id="fri-input-box" placeholder="Add your text" />
+            <button onClick="addTask('fri')">Add</button>
+          </div>
+          <ul id="fri-list-container"></ul>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="todo-app">
+        <h2>
+          <span class="hours">168</span> <img src="images/icon.png" alt="" />|
+        </h2>
+        <div class="row">
+          <input type="text" id="input-box" placeholder="Add your text" />
+          <input type="number" id="input-number" placeholder="add hours" />
+          <button onClick="addTask()">Add</button>
+        </div>
+        <ul id="list-container"></ul>
+      </div>
+      <div style="display: flex">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -27,6 +27,11 @@ function addTask(day) {
     let span = document.createElement("span");
     span.innerHTML = "\u00d7";
     li.appendChild(span);
+
+    let option = document.createElement("option");
+    option.value = inputBox.value;
+    option.text = inputBox.value;
+    dropdown.appendChild(option);
   }
   inputBox.value = "";
   saveData(day);
