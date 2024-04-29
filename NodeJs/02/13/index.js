@@ -1,5 +1,6 @@
 const fs = require("fs");
 const http = require("http");
+const path = require("path");
 const url = require("url");
 
 // server
@@ -10,6 +11,7 @@ const dataObj = JSON.parse(data);
 const server = http.createServer((req, res) => {
   console.log(req.url);
   const pathName = req.url;
+
   if (pathName === "/" || pathName === "/overview") {
     res.end("This is the OVERVIEW");
   } else if (pathName === "/product") {
@@ -22,7 +24,7 @@ const server = http.createServer((req, res) => {
       "Content-type": "text/html",
       "my-own-header": "hello-world",
     });
-    res.end("<h1>Page is not Found</h1>");
+    res.end("<h1>This page could not found</h1>");
   }
 });
 
