@@ -14,7 +14,7 @@
 
 .todo-app {
   width: 100%;
-  max-width: 620px;
+  max-width: 820px;
   background: #fff;
   margin: 100px auto 20px;
   padding: 40px;
@@ -105,4 +105,12 @@ ul li span {
 }
 ul li span:hover {
   background: #edeef0;
+}
+
+#list-container {
+  list-style-type: none; /* Removes default list bullets */
+  padding: 10px; /* Removes default padding */
+  margin: 20px 0; /* Adds vertical margin */
+  background-color: #f0f0f0; /* Light gray background */
+  border-radius: 5px; /* Rounded corners */
 }

@@ -2,6 +2,7 @@ const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const inputHours = document.getElementById("input-number");
 let hours = 168;
+let productiveHours = 0;
 
 function addTask() {
   if (inputBox.value === "") {
@@ -16,9 +17,12 @@ function addTask() {
     alert("Please enter a valid number of hours between 0 and 24");
   } else {
     let li = document.createElement("li");
+    li.setAttribute("draggable", "true");
     // Add input-number's value next to the task text, assuming it's an integer like "hours"
     li.innerHTML = inputBox.value + " (" + inputHours.value + " hours)";
+
     listContainer.appendChild(li);
+
     hours = hours - parseInt(inputHours.value);
 
     document.querySelector(".hours").textContent = hours;
@@ -37,17 +41,16 @@ listContainer.addEventListener(
   function (e) {
     if (e.target.tagName === "LI") {
       e.target.classList.toggle("checked");
-      // Toggle hours addition or subtraction based on whether the item is checked or not
-      const hourText = e.target.innerText.match(/\((\d+) hours\)/); // Regex to find the hours in text
+      const hourText = e.target.innerText.match(/\((\d+) hours\)/);
       if (hourText && hourText[1]) {
         const taskHours = parseInt(hourText[1]);
         if (e.target.classList.contains("checked")) {
-          // If task is checked, add hours back to total
-          hours += taskHours;
+          productiveHours += taskHours;
         } else {
-          // If task is unchecked, subtract hours from total
-          hours -= taskHours;
+          productiveHours -= taskHours;
         }
+        document.querySelector(".productiveHours").textContent =
+          productiveHours;
         document.querySelector(".hours").textContent = hours; // Update the display of hours
       }
       saveData();
@@ -56,13 +59,16 @@ listContainer.addEventListener(
       const hourText = parentLi.innerText.match(/\((\d+) hours\)/);
       if (hourText && hourText[1]) {
         const taskHours = parseInt(hourText[1]);
-        if (!parentLi.classList.contains("checked")) {
-          // Only adjust hours if the task was not checked
-          hours += taskHours;
+        if (parentLi.classList.contains("checked")) {
+          // If task was checked, subtract from productiveHours and add back to hours
+          productiveHours -= taskHours;
+          document.querySelector(".productiveHours").textContent =
+            productiveHours;
         }
+        hours += taskHours; // Add the hours back whether checked or not
+        document.querySelector(".hours").textContent = hours;
       }
       parentLi.remove(); // Remove the task
-      document.querySelector(".hours").textContent = hours;
       saveData();
     }
   },
@@ -79,3 +85,20 @@ function showTask() {
   document.querySelector(".hours").textContent = hours; // Update the display of hours
 }
 showTask();
+
+function resetSaveData() {
+  localStorage.removeItem("data"); // Remove the saved tasks from local storage
+  localStorage.removeItem("hours"); // Remove the saved hours from local storage
+  hours = 168; // Reset hours to the default value
+  productiveHours = 0; // Reset productive hours to zero
+
+  // Update the display of hours and productiveHours on the UI
+  document.querySelector(".hours").textContent = hours;
+  document.querySelector(".productiveHours").textContent = productiveHours;
+
+  // Clear the task list visually by setting the inner HTML of the list container to an empty string
+  listContainer.innerHTML = "";
+
+  // Optionally, you could also call saveData() to save the reset state, or leave the local storage clear until new data is added
+  // saveData();
+}
