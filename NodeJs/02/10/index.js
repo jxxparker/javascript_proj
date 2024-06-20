@@ -1,15 +1,13 @@
-const fs = require("fs");
+console.log("---");
 
-// Blocking, synchornous way
-const textIn = fs.readFileSync("./txt/input.txt", "utf-8");
-console.log(textIn);
+// Blocking, synchronous way
+// const fs = require("fs");
+// const textIn = fs.readFileSync("./txt/input.txt", "utf-8");
+// // console.log(textIn);
 
-const textOut = `This is what we know about the avocado: ${textIn}.\nCreated on ${Date.now()}`;
-fs.writeFileSync("./txt/output.txt", textOut);
-console.log("File written");
+// const textOut = `This is what we know about the avocado: ${textIn}.\nCreated on ${Date.now}`;
+// fs.writeFileSync("./txt/output.txt", textOut);
+// console.log("File written");
 
-// Non Blocking, asynchrous way
-fs.readFile("./txt/start.txt", "utf-8", (err, data) => {
-  console.log(data);
-});
-console.log("Will read file");
+// Non-blocking asynchrous way
+fs.readFile();

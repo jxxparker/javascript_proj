@@ -44,6 +44,11 @@ const CartItems = () => {
         }
         return null;
       })}
+      <div className="cartitems-down">
+        <div className="cartitems-total">
+          <h1>cart Totals</h1>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Loader</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <img src="styles/download.png" alt="Coates Logo" class="logo" />
+      <h1>Health Check Tool ( Dunkin/BR )</h1>
+    </div>
+
+    <div id="loginContainer" class="login-container">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="loginBtn" class="button">Login</button>
+      <p id="loginMessage" class="login-message"></p>
+    </div>
+
+    <div id="appContainer" class="app-container" style="display: none">
+      <div class="controls">
+        <button id="parseUrlsBtn" class="button">Parse URLs</button>
+        <button id="loadImagesBtn" class="button" style="display: none">
+          Load Images
+        </button>
+        <button id="downloadFolderBtn" class="button" style="display: none">
+          Download Images
+        </button>
+        <div class="filter">
+          <label for="timezoneFilter">Timezone:</label>
+          <select id="timezoneFilter">
+            <option value="">All</option>
+            <option value="America/New_York">America/New_York</option>
+            <option value="America/Chicago">America/Chicago</option>
+            <option value="America/Phoenix">America/Phoenix</option>
+            <!-- <option value="America/Edmonton">America/Edmonton</option> -->
+            <option value="America/Denver">America/Denver</option>
+            <option value="Pacific/Honolulu">Pacific/Honolulu</option>
+            <!-- Add other timezones as needed -->
+          </select>
+        </div>
+        <div class="filter">
+          <label for="mpTypeFilter">MP Type:</label>
+          <select id="mpTypeFilter">
+            <option value="">All</option>
+            <option value="ODMB">ODMB</option>
+            <option value="DD FC">DD FC</option>
+            <!-- <option value="BR FC">BR FC</option> -->
+            <option value="Presell">Presell</option>
+            <option value="OSB">OSB</option>
+            <!-- Add other mp_types as needed -->
+          </select>
+        </div>
+      </div>
+      <div id="imageContainer" class="image-container"></div>
+    </div>
+
+    <button class="theme-toggle-button" onclick="toggleTheme()">
+      Toggle Theme
+    </button>
+    <hr />
+    <button class="theme-toggle-button-left" id="reloadBtn" class="button">
+      Reload
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/parse.js"></script>
+    <!-- <script src="scripts/download.js"></script> -->
+  </body>
+</html>

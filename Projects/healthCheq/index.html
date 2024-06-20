@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Health Check Tool Coates Support</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+  
+  
+  <body class="dark-theme">
+    <h1>Health Check Tool</h1>
+
+    <!-- Rest of your HTML content -->
+    <textarea
+      id="urlInput"
+      rows="4"
+      placeholder='Paste your image URLs here, separated by commas, e.g., "https://example.com/image1.jpg", "https://example.com/image2.png"'
+    ></textarea>
+    <div class="button-container">
+      <button id="parseUrlsBtn">Parse URLs</button>
+      <button id="downloadFolderBtn">Download Images</button>
+      <button id="toggleThemeBtn">Toggle Theme</button>
+    </div>
+    <button id="loadImagesBtn" style="display: none">Load More Images</button>
+    <div class="image-container" id="imageContainer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
