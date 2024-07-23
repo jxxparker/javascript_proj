@@ -11,6 +11,7 @@ document.getElementById("parseUrlsBtn").addEventListener("click", function () {
   container.innerHTML = "";
 
   // Fetch the JavaScript file containing URLs
+
   fetch("list/list.js")
     .then((response) => {
       // Check if the response is not ok (status not in 200-299 range)
@@ -70,7 +71,7 @@ function filterAndLoadUrls() {
 // Load images from the URLs
 function loadImages() {
   const container = document.getElementById("imageContainer");
-  const batchSize = Math.min(500, urls.length - currentIndex); // Load up to 500 images or remaining
+  const batchSize = Math.min(50, urls.length - currentIndex); // Load up to 500 images or remaining
 
   for (let i = 0; i < batchSize; i++, currentIndex++) {
     const url = urls[currentIndex];
@@ -133,44 +134,7 @@ document
   .getElementById("mpTypeFilter")
   .addEventListener("change", filterAndLoadUrls);
 
-// Function to clear parse-related variables
-window.clearParseVars = function () {
-  urls = [];
-  currentIndex = 0;
-  allHealthCheckData = [];
-  fetchedBlobs = [];
-};
-
-// Handle "Download Images" button click
-document
-  .getElementById("downloadFolderBtn")
-  .addEventListener("click", function () {
-    const zip = new JSZip();
-    const folder = zip.folder("images");
-
-    // Add each fetched blob to the zip folder
-    fetchedBlobs.forEach(({ blob, fileName }) => {
-      folder.file(fileName, blob);
-    });
-
-    // Generate the zip file and trigger download
-    zip.generateAsync({ type: "blob" }).then((content) => {
-      saveAs(content, "images.zip");
-    });
-  });
-
-// Event listener for "Q" button to scroll to the top
-document.addEventListener("keydown", function (event) {
-  if (event.key === "q" || event.key === "Q") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-  function toggleTheme() {
-    document.body.classList.toggle("dark-theme");
-  }
-
   // Handle "Reload" button click
   document.getElementById("reloadBtn").addEventListener("click", function () {
     // Clear parse-related variables
