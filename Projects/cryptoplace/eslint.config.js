@@ -28,6 +28,8 @@ export default [
       ...react.configs.recommended.rules,
       ...react.configs["jsx-runtime"].rules,
       ...reactHooks.configs.recommended.rules,
+      "no-unused-vars": ["error", { varsIgnorePattern: "^_" }],
+
       "react/jsx-no-target-blank": "off",
       "react/react-in-jsx-scope": "off",
       "no-unused-vars": ["error", { varsIgnorePattern: "React" }],
