@@ -20,7 +20,7 @@ const Navbar = () => {
         setCurrency({ name: "krw", symbol: "W" });
         break;
       }
-      default {
+      default: {
         setCurrency({ name: "usd", symbol: "$" });
         break;
       }
