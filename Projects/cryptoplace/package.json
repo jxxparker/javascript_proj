@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-google-charts": "^5.2.1",
@@ -17,11 +18,14 @@
     "react-scripts": "^5.0.1"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.25.9",
     "@eslint/js": "^9.13.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
     "@vitejs/plugin-react": "^4.3.3",
-    "eslint": "^9.13.0",
+    "eslint": "^9.15.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",

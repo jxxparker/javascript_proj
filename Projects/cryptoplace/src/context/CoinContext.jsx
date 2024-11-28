@@ -18,8 +18,8 @@ const CoinContextProvider = (props) => {
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
       options
     )
-      .then((res) => response.json())
-      .then((res) => setAllCoin(response))
+      .then((response) => response.json())
+      .then((response) => setAllCoin(response))
       .catch((err) => console.error(err));
   };
 
