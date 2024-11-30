@@ -32,9 +32,14 @@ const Home = () => {
           <p style={{ textAlign: "center" }}>24 Hour Change</p>
           <p className="market-cap">Market Cap</p>
         </div>
-        {displayCoin.slice(0.1).map((item, index) => (
+        {displayCoin.slice(0, 10).map((item, index) => (
           <div className="table-layout" key={index}>
             <p>{item.market_cap_rank}</p>
+            <div>
+              <img src={item.image} alt="" />
+              <p>{item.name + " - " + item.symbol}</p>
+            </div>
+            ;
           </div>
         ))}
       </div>
