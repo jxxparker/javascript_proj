@@ -11,6 +11,17 @@ const Home = () => {
     setInput(event.target.value);
   };
 
+  const searchHandler = async (event) => {
+    event.preventDefault();
+    const coins = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setDisplayCoin(coins);
+    if (event.target.value === "") {
+      setDisplayCoin(allCoin);
+    }
+  };
+
   useEffect(() => {
     setDisplayCoin(allCoin);
   }, [allCoin]);
@@ -24,7 +35,7 @@ const Home = () => {
           Welcome to the worlds largest cryptocurrency marketpalce. Sign up to
           explore more about cryptos
         </p>
-        <form>
+        <form onSubmit={searchHandler}>
           <input
             onChange={inputHandler}
             value={input}
