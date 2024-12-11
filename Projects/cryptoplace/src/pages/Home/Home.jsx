@@ -38,11 +38,17 @@ const Home = () => {
         <form onSubmit={searchHandler}>
           <input
             onChange={inputHandler}
+            list="coinlist"
             value={input}
             type="text"
             placeholder="Search crypto.."
             required
           />
+          <datalist id="coinlist">
+            {allCoin.map((item, index) => (
+              <option key={index} value={item.name} />
+            ))}
+          </datalist>
           <button type="submit">Search</button>
         </form>
       </div>
@@ -80,4 +86,3 @@ const Home = () => {
 };
 
 export default Home;
-//
