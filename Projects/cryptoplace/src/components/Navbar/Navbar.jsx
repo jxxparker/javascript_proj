@@ -32,11 +32,11 @@ const Navbar = () => {
     <div className="navbar">
       <Link to={"/"}>
         <img src={logo} alt="" className="logo" />
-      </Link>
+      </Link>{" "}
       <ul>
         <Link to={"/"}>Home</Link>
-        <li>Features</li>
         <li>Pricing</li>
+        <li>Feature</li>
         <li>Blog</li>
       </ul>
       <div className="nav-right">
