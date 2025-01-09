@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useProductStore } from "../store/product";
+import { useToast } from "@chakra-ui/react";
 
 const CreatePage = () => {
   const [newProduct, setNewProduct] = useState({
@@ -17,10 +18,27 @@ const CreatePage = () => {
     image: "",
   });
 
+  const toast = useToast();
+
   const { createProduct } = useProductStore();
 
   const handleAddProduct = async () => {
     const { success, message } = await createProduct(newProduct);
+    if (!success) {
+      toast({
+        title: "ERROR",
+        description: message,
+        status: "error",
+        isClosable: true,
+      });
+    } else {
+      toast({
+        title: "Success",
+        description: message,
+        status: "Success",
+        isClosable: true,
+      });
+    }
   };
 
   return (
