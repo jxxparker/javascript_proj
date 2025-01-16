@@ -4,12 +4,12 @@ import {
   Container,
   Heading,
   Input,
-  VStack,
   useColorModeValue,
+  useToast,
+  VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useProductStore } from "../store/product";
-import { useToast } from "@chakra-ui/react";
 
 const CreatePage = () => {
   const [newProduct, setNewProduct] = useState({
@@ -17,7 +17,6 @@ const CreatePage = () => {
     price: "",
     image: "",
   });
-
   const toast = useToast();
 
   const { createProduct } = useProductStore();
@@ -26,7 +25,7 @@ const CreatePage = () => {
     const { success, message } = await createProduct(newProduct);
     if (!success) {
       toast({
-        title: "ERROR",
+        title: "Error",
         description: message,
         status: "error",
         isClosable: true,
@@ -35,7 +34,7 @@ const CreatePage = () => {
       toast({
         title: "Success",
         description: message,
-        status: "Success",
+        status: "success",
         isClosable: true,
       });
     }
@@ -46,8 +45,9 @@ const CreatePage = () => {
     <Container maxW={"container.sm"}>
       <VStack spacing={8}>
         <Heading as={"h1"} size={"2xl"} textAlign={"center"} mb={8}>
-          Create new Product
+          Create New Product
         </Heading>
+
         <Box
           w={"full"}
           bg={useColorModeValue("white", "gray.800")}
@@ -91,5 +91,4 @@ const CreatePage = () => {
     </Container>
   );
 };
-
 export default CreatePage;
