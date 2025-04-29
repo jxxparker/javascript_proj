@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.container {
+  text-align: center;
+}
+
+.image-gallery {
+  display: flex;
+  flex-direction: column; /* Makes images stack vertically */
+  align-items: center; /* Centers images horizontally */
+  gap: 20px; /* Adds spacing between images */
+  margin-top: 20px;
+}
+
+.image-gallery img {
+  max-width: 500px; /* Default size for larger images */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-gallery .small-image {
+  max-width: 200px; /* Slightly smaller size for section images */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cursive-title {
+  font-family: "Brush Script MT", "Comic Sans MS", "Cursive", sans-serif; /* Ensure cursive font */
+  font-size: 2rem; /* Adjust size as needed */
+  color: #333; /* Adjust color as needed */
+  text-align: center; /* Center-align the text */
+  display: inline-block; /* Ensures the circle wraps tightly around the text */
+  padding: 20px; /* Adds space inside the circle */
+  border: 2px solid #333; /* Circle border */
+  border-radius: 50%; /* Makes the border circular */
+  background-color: #f4f4f4; /* Optional: background color inside the circle */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+}
+
+.small-image {
+  max-width: 300px; /* Smaller size for section images */
+  height: auto;
+  border-radius: 10px; /* Optional: keeps rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow */
+}
+
+.highlighted-section {
+  background-color: rgb(255, 255, 227); /* Yellow background */
+  padding: 10px; /* Add padding around the images */
+  border-radius: 10px; /* Optional: rounded corners */
+  display: flex; /* Use Flexbox to stack images */
+  flex-direction: column; /* Stack images vertically */
+  justify-content: center; /* Center the images vertically */
+  align-items: center; /* Align images horizontally */
+  gap: 10px; /* Add spacing between the images */
+  max-width: 500px; /* Matches the size of the larger images */
+  width: 100%; /* Ensure it scales properly */
+  margin: 0 auto; /* Center the section on the page */
+}
+
+.highlighted-section img {
+  max-width: 100%; /* Ensure images fit within the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Mobile-friendly styles */
+@media (max-width: 768px) {
+  .image-gallery {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center-align images */
+    gap: 15px; /* Add spacing between images */
+  }
+
+  .image-gallery img {
+    max-width: 90%; /* Reduce image size for smaller screens */
+  }
+
+  .image-gallery .small-image {
+    max-width: 80%; /* Reduce size of smaller images */
+  }
+
+  .highlighted-section {
+    max-width: 90%; /* Adjust yellow background size */
+    padding: 15px; /* Add more padding for better spacing */
+  }
+
+  .cursive-title {
+    font-family: "Brush Script MT", "Comic Sans MS", "Cursive", sans-serif; /* Ensure cursive font on mobile */
+    font-size: 1.8rem; /* Slightly smaller font size for mobile */
+  }
+
+  .small-image {
+    max-width: 250px; /* Reduce size of smaller images on mobile */
+  }
+
+  .highlighted-section {
+    max-width: 90%; /* Adjust yellow background size for mobile */
+  }
+}

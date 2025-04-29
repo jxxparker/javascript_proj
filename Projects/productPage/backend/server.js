@@ -23,9 +23,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // console.log(process.env.MONGO_URI);
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   connectDB();
-  console.log("Server started at http://localhost:" + PORT);
+  console.log(`Server started on port ${PORT}`);
 });
 
-//password tjMkTGKkTvkxpnox
+app.get("/", (req, res) => {
+  res.send("✅ Backend is running");
+});
